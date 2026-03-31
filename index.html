@@ -1,172 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic Page Setup -->
+    <!-- Basic Setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cluckingham Palace 🐔</title>
+    <title>🐔 Cluckingham Palace</title>
 
-    <!-- Internal CSS for rustic farm theme -->
+    <!-- Google Font (fallback safe if blocked) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        body {
+        /* ===== GLOBAL STYLES ===== */
+        * {
             margin: 0;
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            background-color: #f5e6c8;
-            color: #4b2e05;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(#f7e7c6, #f2d096);
+            color: #3b2b12;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* ===== HEADER ===== */
         header {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/7/70/Chicken_silhouette.png') center/contain no-repeat;
             background-color: #8b5a2b;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 80px 20px;
         }
 
+        header h1 {
+            font-size: 3em;
+        }
+
+        /* ===== NAV ===== */
         nav {
-            background-color: #d2a679;
+            position: sticky;
+            top: 0;
+            background: #d2a679;
             padding: 10px;
             text-align: center;
+            z-index: 1000;
         }
 
         nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: #4b2e05;
+            color: #3b2b12;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: white;
-        }
-
-        section {
-            padding: 20px;
-            border-bottom: 2px dashed #8b5a2b;
-        }
-
-        h2 {
-            color: #8b0000;
-        }
-
-        img {
-            max-width: 300px;
-            border-radius: 10px;
-            display: block;
-            margin: 10px 0;
-        }
-
-        /* Fun button styling */
-        .fun-button {
-            background-color: #ffcc00;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: transform 0.2s, background-color 0.3s;
-        }
-
-        .fun-button:hover {
-            background-color: #ffa500;
             transform: scale(1.1);
         }
 
+        /* ===== CARD LAYOUT ===== */
+        .card {
+            background: #fff8e7;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== IMAGES ===== */
+        .image {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* ===== BUTTON ===== */
+        .fun-button {
+            background: #ffcc00;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .fun-button:hover {
+            background: orange;
+            transform: scale(1.1) rotate(-2deg);
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
-            background-color: #8b5a2b;
+            background: #8b5a2b;
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
+        }
+
+        /* ===== ANIMATION ===== */
+        .fade-in {
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <h1>🐔 Cluckingham Palace 🐔</h1>
-        <p>Where every chicken thinks it's royalty</p>
-    </header>
+<!-- ===== HEADER ===== -->
+<header>
+    <h1>🐔 Cluckingham Palace</h1>
+    <p>The internet’s most prestigious chicken empire</p>
+</header>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#breeds">Breeds</a>
-        <a href="#facts">Fun Facts</a>
-        <a href="#contact">Contact the Farmer</a>
-    </nav>
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <a href="#about">Home</a>
+    <a href="#breeds">Breeds</a>
+    <a href="#facts">Fun Facts</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <!-- Home / About Section -->
-    <section id="home">
-        <h2>About Chickens</h2>
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" class="fade-in">
+    <h2>About Chickens</h2>
+
+    <div class="card">
         <p>
-            Chickens are basically tiny dinosaurs with better fashion sense. 
-            They strut around like they own the place (because they do), 
-            wake everyone up at unreasonable hours, and somehow still expect snacks.
+            Chickens are tiny feathered overlords who pretend to be harmless…
+            but secretly run the farm. They wake you up early, judge your life choices,
+            and demand snacks like royalty.
         </p>
+
         <p>
-            Despite their reputation for crossing roads without explanation, 
-            chickens are actually quite clever. Some can even recognize faces — 
-            so be nice… they remember EVERYTHING.
+            Scientists say chickens are descendants of dinosaurs…
+            which explains why they sprint like chaos gremlins when startled.
         </p>
-        <p><strong>Chicken Joke:</strong> Why did the chicken join a band? Because it had the drumsticks! 🥁</p>
 
-        <!-- Chicken Image -->
-        <img src="https://conwaykitchen.com/cdn/shop/files/39f6f26c56c8f0f18dce3e8f38f6524f_720x_20faba98-cb4e-47a5-a9c7-1633d4338b30.jpg?v=1682375605" alt="Silhouette of a chicken standing proudly like royalty">
-    </section>
+        <p><strong>Joke:</strong> Why don’t chickens use social media? Too many pecking orders.</p>
 
-    <!-- Breeds Section -->
-    <section id="breeds">
-        <h2>Popular Chicken Breeds</h2>
+        <!-- REAL IMAGE -->
+        <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Chicken_silhouette.png/512px-Chicken_silhouette.png" alt="Chicken silhouette representing farm life">
+    </div>
+</section>
 
-        <h3>🐓 Rhode Island Red</h3>
-        <p>Hardworking, dependable, and probably judging you silently.</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Rhode_Island_Red.jpg" alt="Rhode Island Red chicken standing in a farmyard">
+<!-- ===== BREEDS SECTION ===== -->
+<section id="breeds" class="fade-in">
+    <h2>Popular Chicken Breeds</h2>
 
-        <h3>🐓 Silkie</h3>
-        <p>Looks like a chicken crossed with a fluffy cloud. May actually be a cloud.</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Silkie_chicken.jpg" alt="Fluffy Silkie chicken with soft feathers">
+    <div class="grid">
 
-        <h3>🐓 Leghorn</h3>
-        <p>Fast, loud, and probably the one who started all the drama in the coop.</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/White_Leghorn_rooster.jpg" alt="White Leghorn rooster with bright feathers">
-    </section>
+        <div class="card">
+            <h3>Rhode Island Red</h3>
+            <p>The reliable coworker of the chicken world.</p>
+            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Rhode_Island_Red.jpg" alt="Rhode Island Red chicken standing">
+        </div>
 
-    <!-- Fun Facts Section -->
-    <section id="facts">
-        <h2>Fun Chicken Facts</h2>
+        <div class="card">
+            <h3>White Farm Chicken</h3>
+            <p>Looks innocent. Definitely plotting something.</p>
+            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Chicken.jpg" alt="White chicken on farm">
+        </div>
+
+        <div class="card">
+            <h3>Farm Flock Chaos</h3>
+            <p>When you accidentally spawn 100 chickens at once.</p>
+            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Broiler_chickens.jpg" alt="Group of chickens in a farm">
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== FUN FACTS ===== -->
+<section id="facts" class="fade-in">
+    <h2>Fun Chicken Facts</h2>
+
+    <div class="card">
         <ul>
-            <li>Chickens can run up to 9 miles per hour… which is faster than you chasing one.</li>
-            <li>They dream when they sleep. Probably about corn. Definitely about corn.</li>
-            <li>A group of chickens is called a "flock"… or "organized chaos."</li>
-            <li>Some chickens can remember over 100 different faces. Yes, they know what you did.</li>
-            <li>There are more chickens on Earth than humans. They’re just letting us think we’re in charge.</li>
+            <li>Chickens outnumber humans. They are just waiting.</li>
+            <li>They can remember faces… yes, including yours.</li>
+            <li>Some chickens can run faster than your WiFi.</li>
+            <li>They communicate with over 30 different sounds.</li>
         </ul>
 
-        <!-- Fun interactive button -->
-        <button class="fun-button" onclick="alert('Bawk! You have been officially approved by the Chicken Council 🐔')">
+        <button class="fun-button" onclick="alert('🐔 You are now officially chicken-approved!')">
             Get Chicken Approval
         </button>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact the Farmer</h2>
-        <p>
-            Need advice? Want to adopt a chicken? Just want to talk about eggs for 45 minutes?
-        </p>
-        <p>
-            📬 Email: farmercluck@totallyrealfarm.com<br>
-            📞 Phone: (555) 123-CLUCK<br>
-            🏡 Address: 123 Feather Lane, Coopville, TX
-        </p>
-        <p><em>Disclaimer: The farmer may be busy negotiating with chickens.</em></p>
-    </section>
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="fade-in">
+    <h2>Contact the Farmer</h2>
 
-    <!-- Footer -->
-    <footer>
-        <p>No chickens were harmed in the making of this website 🐔</p>
-        <p>© 2026 Cluckingham Palace</p>
-    </footer>
+    <div class="card">
+        <p>Need chicken advice? Emotional support chicken? Business inquiry?</p>
+
+        <p>
+            📧 farmer@cluckingham.com<br>
+            📞 (555) 123-CLUCK<br>
+            🏡 123 Coop Street, Farmville
+        </p>
+
+        <p><em>Warning: Farmer may respond with chicken memes.</em></p>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>No chickens were harmed in the making of this website 🐔</p>
+    <p>© 2026 Cluckingham Palace</p>
+</footer>
 
 </body>
 </html>
