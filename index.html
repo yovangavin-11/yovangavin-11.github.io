@@ -1,245 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic Setup -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐔 Cluckingham Palace</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐔 Cluckingham Palace</title>
 
-    <!-- Google Font (fallback safe if blocked) -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* ===== GLOBAL STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(#f7e7c6, #f2d096);
+    color: #3b2b12;
+}
 
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(#f7e7c6, #f2d096);
-            color: #3b2b12;
-            scroll-behavior: smooth;
-        }
+/* ===== HEADER ===== */
+header {
+    background: #8b5a2b;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
 
-        h1, h2, h3 {
-            margin-bottom: 10px;
-        }
+/* ===== NAV ===== */
+nav {
+    position: sticky;
+    top: 0;
+    background: #d2a679;
+    padding: 10px;
+    text-align: center;
+}
 
-        section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #3b2b12;
+    font-weight: bold;
+}
 
-        /* ===== HEADER ===== */
-        header {
-            background: url('https://upload.wikimedia.org/wikipedia/commons/7/70/Chicken_silhouette.png') center/contain no-repeat;
-            background-color: #8b5a2b;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
+nav a:hover {
+    color: white;
+}
 
-        header h1 {
-            font-size: 3em;
-        }
+/* ===== SECTIONS ===== */
+section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
 
-        /* ===== NAV ===== */
-        nav {
-            position: sticky;
-            top: 0;
-            background: #d2a679;
-            padding: 10px;
-            text-align: center;
-            z-index: 1000;
-        }
+.card {
+    background: #fff8e7;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #3b2b12;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+/* ===== GAME AREA ===== */
+#gameArea {
+    position: relative;
+    height: 300px;
+    background: #c2e59c;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px dashed #8b5a2b;
+}
 
-        nav a:hover {
-            color: white;
-            transform: scale(1.1);
-        }
+/* Chicken sprite */
+#chicken {
+    position: absolute;
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
 
-        /* ===== CARD LAYOUT ===== */
-        .card {
-            background: #fff8e7;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
-        }
+#chicken:hover {
+    transform: scale(1.1);
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+/* Score */
+#score {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
-        /* ===== IMAGES ===== */
-        .image {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
+/* Button */
+.fun-button {
+    background: #ffcc00;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
-        /* ===== BUTTON ===== */
-        .fun-button {
-            background: #ffcc00;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
+.fun-button:hover {
+    background: orange;
+}
 
-        .fun-button:hover {
-            background: orange;
-            transform: scale(1.1) rotate(-2deg);
-        }
-
-        /* ===== GRID ===== */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #8b5a2b;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* ===== ANIMATION ===== */
-        .fade-in {
-            animation: fadeIn 1.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-    </style>
+/* Footer */
+footer {
+    background: #8b5a2b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
+
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
     <h1>🐔 Cluckingham Palace</h1>
-    <p>The internet’s most prestigious chicken empire</p>
+    <p>Now with 100% more chaotic chickens</p>
 </header>
 
-<!-- ===== NAVIGATION ===== -->
 <nav>
     <a href="#about">Home</a>
-    <a href="#breeds">Breeds</a>
-    <a href="#facts">Fun Facts</a>
+    <a href="#game">Mini Game</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- ===== ABOUT SECTION ===== -->
-<section id="about" class="fade-in">
+<!-- ABOUT -->
+<section id="about">
     <h2>About Chickens</h2>
-
     <div class="card">
         <p>
-            Chickens are tiny feathered overlords who pretend to be harmless…
-            but secretly run the farm. They wake you up early, judge your life choices,
-            and demand snacks like royalty.
+            Chickens are fast. Suspiciously fast.  
+            Scientists say they descend from dinosaurs — which explains why
+            catching one feels like a boss fight.
         </p>
-
-        <p>
-            Scientists say chickens are descendants of dinosaurs…
-            which explains why they sprint like chaos gremlins when startled.
-        </p>
-
-        <p><strong>Joke:</strong> Why don’t chickens use social media? Too many pecking orders.</p>
-
-        <!-- REAL IMAGE -->
-        <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Chicken_silhouette.png/512px-Chicken_silhouette.png" alt="Chicken silhouette representing farm life">
+        <p><strong>Your mission:</strong> Catch the chicken below 👇</p>
     </div>
 </section>
 
-<!-- ===== BREEDS SECTION ===== -->
-<section id="breeds" class="fade-in">
-    <h2>Popular Chicken Breeds</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Rhode Island Red</h3>
-            <p>The reliable coworker of the chicken world.</p>
-            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Rhode_Island_Red.jpg" alt="Rhode Island Red chicken standing">
-        </div>
-
-        <div class="card">
-            <h3>White Farm Chicken</h3>
-            <p>Looks innocent. Definitely plotting something.</p>
-            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Chicken.jpg" alt="White chicken on farm">
-        </div>
-
-        <div class="card">
-            <h3>Farm Flock Chaos</h3>
-            <p>When you accidentally spawn 100 chickens at once.</p>
-            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Broiler_chickens.jpg" alt="Group of chickens in a farm">
-        </div>
-
-    </div>
-</section>
-
-<!-- ===== FUN FACTS ===== -->
-<section id="facts" class="fade-in">
-    <h2>Fun Chicken Facts</h2>
+<!-- GAME -->
+<section id="game">
+    <h2>🎮 Catch the Chicken!</h2>
 
     <div class="card">
-        <ul>
-            <li>Chickens outnumber humans. They are just waiting.</li>
-            <li>They can remember faces… yes, including yours.</li>
-            <li>Some chickens can run faster than your WiFi.</li>
-            <li>They communicate with over 30 different sounds.</li>
-        </ul>
+        <p id="score">Score: 0</p>
+        <button class="fun-button" onclick="startGame()">Start Game</button>
 
-        <button class="fun-button" onclick="alert('🐔 You are now officially chicken-approved!')">
-            Get Chicken Approval
-        </button>
+        <div id="gameArea">
+            <!-- REAL chicken image -->
+            <img id="chicken"
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Chicken.jpg"
+            alt="Chicken for mini game">
+        </div>
     </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="fade-in">
+<!-- CONTACT -->
+<section id="contact">
     <h2>Contact the Farmer</h2>
-
     <div class="card">
-        <p>Need chicken advice? Emotional support chicken? Business inquiry?</p>
-
-        <p>
-            📧 farmer@cluckingham.com<br>
-            📞 (555) 123-CLUCK<br>
-            🏡 123 Coop Street, Farmville
-        </p>
-
-        <p><em>Warning: Farmer may respond with chicken memes.</em></p>
+        <p>📧 farmer@cluckingham.com</p>
+        <p>📞 (555) 123-CLUCK</p>
+        <p><em>Farmer is currently chasing chickens.</em></p>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-    <p>No chickens were harmed in the making of this website 🐔</p>
-    <p>© 2026 Cluckingham Palace</p>
+    <p>No chickens were harmed in this game… just mildly annoyed 🐔</p>
 </footer>
+
+<script>
+/* ===== GAME LOGIC ===== */
+let score = 0;
+let gameInterval;
+
+const chicken = document.getElementById("chicken");
+const gameArea = document.getElementById("gameArea");
+const scoreDisplay = document.getElementById("score");
+
+function startGame() {
+    score = 0;
+    scoreDisplay.textContent = "Score: 0";
+
+    moveChicken();
+
+    clearInterval(gameInterval);
+    gameInterval = setInterval(moveChicken, 1000);
+}
+
+/* Move chicken randomly */
+function moveChicken() {
+    const maxX = gameArea.clientWidth - chicken.clientWidth;
+    const maxY = gameArea.clientHeight - chicken.clientHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    chicken.style.left = x + "px";
+    chicken.style.top = y + "px";
+}
+
+/* Click to score */
+chicken.addEventListener("click", () => {
+    score++;
+    scoreDisplay.textContent = "Score: " + score;
+
+    moveChicken();
+});
+</script>
 
 </body>
 </html>
